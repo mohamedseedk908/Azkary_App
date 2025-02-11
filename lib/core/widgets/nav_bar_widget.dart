@@ -1,10 +1,10 @@
 import 'package:azkary_app/feature/azkar/presentation/views/azkar_screen.dart';
-import 'package:azkary_app/feature/brightness/presentation/views/brightntion_screen.dart';
 import 'package:azkary_app/feature/favorit/presentation/views/favorit_screen.dart';
 import 'package:azkary_app/feature/home/presentation/views/home_screen.dart';
 import 'package:azkary_app/feature/settings/presentation/views/setings_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 PersistentTabController _controller = PersistentTabController();
 class NavBarWidget extends StatefulWidget {
@@ -42,8 +42,7 @@ class _NavBarWidgetState extends State<NavBarWidget> {
           screenTransitionAnimationType: ScreenTransitionAnimationType.fadeIn,
         ),
       ),
-      confineToSafeArea: true,
-      navBarHeight: kBottomNavigationBarHeight,
+      navBarHeight: 70.h,
     );
   }
 }
@@ -53,7 +52,6 @@ List<Widget> _buildScreens() {
     CalendarScreen(),
     AzkarScreen(),
     FavoritScreen(),
-    BrightntionScreen(),
     SetingsScreen(),
   ];
 }
@@ -65,14 +63,13 @@ List<PersistentBottomNavBarItem> _navBarsItems() {
       icon: Icon(CupertinoIcons.home),
     ),
     PersistentBottomNavBarItem(
-      icon: Icon(CupertinoIcons.settings),
+      icon: Icon(Icons.self_improvement ,),
     ),
     PersistentBottomNavBarItem(
-      icon: Icon(CupertinoIcons.settings),
-    ), PersistentBottomNavBarItem(
-      icon: Icon(CupertinoIcons.settings),
+      icon: Icon(Icons.favorite),
     ), PersistentBottomNavBarItem(
       icon: Icon(CupertinoIcons.settings),
     ),
   ];
+
 }
