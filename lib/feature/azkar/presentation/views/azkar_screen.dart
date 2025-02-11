@@ -1,10 +1,21 @@
 import 'package:azkary_app/core/utils/app_colors.dart';
-import 'package:azkary_app/feature/azkar/presentation/widgets/azkar_alsbah.dart';
+import 'package:azkary_app/feature/azkar/presentation/views/adhdhkar_almasa.dart';
+import 'package:azkary_app/feature/azkar/presentation/views/adhdhkar_alnawm.dart';
+import 'package:azkary_app/feature/azkar/presentation/views/adhdhkar_alsabah.dart';
+import 'package:azkary_app/feature/azkar/presentation/views/adhkar_aliastiqaz.dart';
+import 'package:azkary_app/feature/azkar/presentation/views/adhkar_alsala.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AzkarScreen extends StatelessWidget {
-  final List<Map<String, String>> azkarList = [
+  final List azkarList = [
+    AdhdhkarAlmasa(),
+    AdhdhkarAlnawm(),
+    AdhdhkarAlsabah(),
+    AdhkarAliastiqaz(),
+    AdhkarAlsala(),
+  ];
+  final List<Map<String, String>> icon = [
     {"title": "أذكار الصباح", "icon": "☀️"},
     {"title": "أذكار المساء", "icon": "🌙"},
     {"title": "أذكار النوم", "icon": "😴"},
@@ -14,45 +25,52 @@ class AzkarScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(title: Center(child: Text("الأذكار",style:
-          TextStyle(fontSize: 50.sp),))),
-        body: GridView.builder(
-          padding: EdgeInsets.all(16),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            childAspectRatio: 2.5, // نسبة الطول للعرض
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
+    return Scaffold(
+      appBar: AppBar(
+        title: Center(
+          child: Text(
+            "الأذكار",
+            style: TextStyle(fontSize: 24, color: Colors.white),
           ),
-          itemCount: azkarList.length,
-          itemBuilder: (context, index) {
-            return GestureDetector(
-              onTap: () {
-                // فتح صفحة الذكر المحدد
-                Navigator.push(
+        ),
+        backgroundColor: Colors.black,
+      ),
+      body: GridView.builder(
+        padding: EdgeInsets.all(16),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          childAspectRatio: 1,
+          crossAxisSpacing: 5,
+          mainAxisSpacing: 10,
+        ),
+        itemCount: azkarList.length,
+        itemBuilder: (context, index) {
+          return GestureDetector(
+            onTap: () {
+              Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => AzkarDetailsScreen(azkarList[index]["title"]!),
-                  ),
-                );
-              },
-              child: Card(
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                elevation: 4,
-                color: AppColors.black,
-                child: Center(
-                  child: Text(
-                    "${azkarList[index]["icon"]} ${azkarList[index]["title"]}",
-                    style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold,color: AppColors.offWhite),
-                  ),
+                  builder: (context) => (azkarList[index]!)));
+            },
+            child: Card(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12)),
+              elevation: 4,
+              color: Colors.black,
+              child: Center(
+                child: Text(
+                  "${icon[index]["icon"]} ${icon[index]["title"]}",
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold,color: AppColors.offWhite),
                 ),
               ),
-            );
-          },
-        ),
+            ),
+          );
+        },
       ),
     );
   }
 }
+
+
+
+
