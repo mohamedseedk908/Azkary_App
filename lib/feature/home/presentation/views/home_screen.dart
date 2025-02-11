@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../widgets/table_calendar_widget.dart';
+
 
 class CalendarScreen extends StatefulWidget {
   @override
@@ -10,37 +12,39 @@ class CalendarScreen extends StatefulWidget {
 class _CalendarScreenState extends State<CalendarScreen> {
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: WeekDaysList(),
-    );
-  }
-}
-
-
-
-class WeekDaysList extends StatefulWidget {
-  @override
-  State<WeekDaysList> createState() => _WeekDaysListState();
-}
-
-class _WeekDaysListState extends State<WeekDaysList> {
-  @override
-  Widget build(BuildContext context) {
-    List<String> daysOfWeek = List.generate(7, (index) {
-      return DateFormat.EEEE('ar').format(DateTime(2024, 2, 11 + index));
-    });
-
-    return Scaffold(
-      appBar: AppBar(title: Text("أيام الأسبوع")),
-      body: ListView.builder(
-        itemCount: daysOfWeek.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-            title: Text(daysOfWeek[index], style: TextStyle(fontSize: 18)),
-          );
-        },
+    return SizedBox(
+      height: MediaQuery.of(context).size.height, // يمنع التمدد اللانهائي
+      child: Column(
+        children: [
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  TableCalendarWidget(),
+                  SizedBox(height: 10),
+                  Divider(color: Colors.black, thickness: 2),
+                  CustomDateTime(),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
 }
+class CustomDateTime extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    String today = DateFormat('EEEE، d MMMM yyyy', 'ar').format(DateTime.now());
 
+    return Container(
+      padding: EdgeInsets.all(16),
+      child: Text(
+        "📅 اليوم: $today",
+        style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+        textAlign: TextAlign.center,
+      ),
+    );
+  }
+}

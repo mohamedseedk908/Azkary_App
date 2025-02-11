@@ -12,7 +12,9 @@ class Azkary extends StatelessWidget {
         scaffoldBackgroundColor: AppColors.primaryColor
       ),
       routerConfig: router,
+      locale: Locale('ar'), // تعيين اللغة للتطبيق
     );
+
   }
 }
 

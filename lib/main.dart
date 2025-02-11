@@ -1,8 +1,15 @@
-import 'package:azkary_app/azkary.dart';
+
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
-void main() {
-  runApp(const Azkary());
+import 'azkary.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await initializeDateFormatting('ar', null); // تهيئة اللغة العربية
+  Intl.defaultLocale = 'ar'; // تعيين اللغة الافتراضية
+
+  runApp(Azkary());
 }
-
 
