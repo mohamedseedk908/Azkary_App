@@ -15,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(
       Duration(seconds: 2),
         (){
-        customNavigate(context,"/OnBoardingScreen");
+        customNavigate(context,"/NavBarWidget");
         }
     );
     // TODO: implement initState

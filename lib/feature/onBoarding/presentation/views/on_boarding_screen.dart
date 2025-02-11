@@ -41,6 +41,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         },
         items: [
           BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: "أذكار",
+            tooltip: "أذكار",
+          ),
+          BottomNavigationBarItem(
             icon: Icon(Icons.self_improvement),
             label: "أذكار",
             tooltip: "أذكار",
@@ -49,11 +54,6 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             icon: Icon(Icons.favorite),
             label: "المفضلة ",
             tooltip: "المفضلة",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.brightness_7),
-            label: " التنبيهات",
-            tooltip: "التنبيهات",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
