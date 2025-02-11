@@ -1,4 +1,5 @@
 import 'package:azkary_app/core/routs/app_router.dart';
+import 'package:azkary_app/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 class Azkary extends StatelessWidget {
   const Azkary({super.key});
@@ -7,6 +8,9 @@ class Azkary extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        scaffoldBackgroundColor: AppColors.primaryColor
+      ),
       routerConfig: router,
     );
   }
