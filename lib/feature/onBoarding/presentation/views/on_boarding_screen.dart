@@ -16,7 +16,7 @@ class OnBoardingScreen extends StatefulWidget {
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
   int _selectedIndex = 0;
   final List<Widget> _screens = [
-    HomeScreen(),
+    CalendarScreen(),
     AzkarScreen(),
     FavoritScreen(),
     BrightntionScreen(),
