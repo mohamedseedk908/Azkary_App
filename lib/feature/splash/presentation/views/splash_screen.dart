@@ -1,6 +1,6 @@
 import 'package:azkary_app/core/utils/app_assets.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import '../../../../core/function/navigation.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -15,12 +15,14 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(
       Duration(seconds: 2),
         (){
-        GoRouter.of(context).push("/OnBoardingScreen");
+        customNavigate(context,"/OnBoardingScreen");
         }
     );
     // TODO: implement initState
     super.initState();
   }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
