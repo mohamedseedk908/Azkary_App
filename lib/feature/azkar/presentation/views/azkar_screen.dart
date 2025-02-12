@@ -2,6 +2,7 @@ import 'package:azkary_app/core/utils/app_colors.dart';
 import 'package:azkary_app/feature/azkar/presentation/views/adhdhkar_almasa.dart';
 import 'package:azkary_app/feature/azkar/presentation/views/adhdhkar_alnawm.dart';
 import 'package:azkary_app/feature/azkar/presentation/views/adhdhkar_alsabah.dart';
+import 'package:azkary_app/feature/azkar/presentation/views/adhdhkar_baed_alsalaa.dart';
 import 'package:azkary_app/feature/azkar/presentation/views/adhkar_aliastiqaz.dart';
 import 'package:azkary_app/feature/azkar/presentation/views/adhkar_alsala.dart';
 
@@ -14,6 +15,7 @@ class AzkarScreen extends StatelessWidget {
     AdhdhkarAlsabah(),
     AdhkarAliastiqaz(),
     AdhkarAlsala(),
+    AdhdhkarBaedAlsalaa(),
   ];
   final List<Map<String, String>> icon = [
     {"title": "أذكار الصباح", "icon": "☀️"},
